@@ -1,4 +1,3 @@
-import { serverInit } from './server.js';
 
 // When the button is clicked, inject setPageBackgroundColor into current page
 playVideo.addEventListener("click", async () => {
@@ -8,8 +7,6 @@ playVideo.addEventListener("click", async () => {
     target: { tabId: tab.id },
     function: clickPlayOrPause,
   });
-
-  serverInit();
 });
 
 // The body of this function will be execuetd as a content script inside the
