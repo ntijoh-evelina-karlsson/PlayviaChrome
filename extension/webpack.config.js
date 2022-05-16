@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     popup: './src/popup/popup.jsx',
-    background: './background.js',
+    background: './src/background/background.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -50,4 +50,5 @@ module.exports = {
       ],
     }),
   ],
+  devtool: 'cheap-module-source-map'
 }

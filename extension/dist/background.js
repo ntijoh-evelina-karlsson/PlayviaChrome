@@ -1,1 +1,2 @@
-chrome.runtime.onInstalled.addListener((function(){console.log("Running...")}));
+chrome.runtime.onInstalled.addListener((function(){console.log("Running...")})),chrome.runtime.onMessage.addListener((function(e,n,o){var t;"connectToServer"==e.msg&&((t=new WebSocket("ws://localhost:9898")).onopen=function(){console.log("WebSocket Client Connected"),t.send("Hi this is the right web client.")},t.onmessage=function(e){console.log("Received: '"+e.data+"'")})}));
+//# sourceMappingURL=background.js.map
