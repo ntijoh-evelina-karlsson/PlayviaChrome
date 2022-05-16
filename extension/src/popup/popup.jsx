@@ -3,24 +3,10 @@ import { render } from 'react-dom';
 
 function Popup(){
 
-  const connectToServer = () => {
-    
-    let url = "ws://localhost:9898"
-    const ws = new WebSocket(url);
-
-    ws.onopen = function() {
-      console.log('WebSocket Client Connected');
-      ws.send('Hi this is the right web client.');
-    };
-
-    ws.onmessage = function(e) {
-    console.log("Received: '" + e.data + "'");
-    };
-  };
-
   return (
     <div>
-      <button onClick={() => connectToServer()} style={{width: "200px"}}>Join!</button>
+      <button onClick={() => chrome.runtime.sendMessage({ msg: "connectToServer" })} style={{width: "200px"}}>Join!</button>
+      <button onClick={() => console.log("Message!")} style={{width: "200px"}}>Message!</button>
     </div>
   );
 }
