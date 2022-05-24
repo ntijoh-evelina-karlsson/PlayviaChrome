@@ -4,11 +4,15 @@
   "description": "",
   "main": "background.js",
   "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "requirejs": "^2.3.6"
