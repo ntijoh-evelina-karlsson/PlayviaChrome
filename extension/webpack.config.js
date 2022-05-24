@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    popup: './src/popup/popup.jsx',
+    bundle: './src/index.js',
     background: './src/background/background.js',
   },
   output: {
@@ -41,8 +41,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/popup/popup.html',
-      filename: 'popup.html'
+      template: './src/index.html',
+      filename: 'index.html'
     }),
     new CopyPlugin({
       patterns: [

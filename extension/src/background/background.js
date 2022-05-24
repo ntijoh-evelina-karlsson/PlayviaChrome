@@ -2,22 +2,38 @@ chrome.runtime.onInstalled.addListener(() => {
   console.log('Running...');
 });
 
+//Websocket
+var ws;
+
 var connectToServer = function(){
   let url = "ws://localhost:9898"
-    const ws = new WebSocket(url);
+    ws = new WebSocket(url);
 
     ws.onopen = function() {
-      console.log('WebSocket Client Connected');
-      ws.send('Hi this is the right web client.');
+      console.log('Client Succesfully Connected');
+      ws.send("Hi I've connected to your server!");
     };
 
     ws.onmessage = function(e) {
-    console.log("Received: '" + e.data + "'");
+      console.log("Received Message From Server: '" + e.data + "'");
+      chrome.runtime.sendMessage({
+        msg: e.data
+      })
     };
 }
 
+var sendMsg = function(payload){
+  ws.send(payload);
+}
+
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse){
-      if(request.msg == "connectToServer") connectToServer();
+  function(request){
+      if(request.msg == "connectToServer"){
+        connectToServer();
+      }
+      else if (request.msg == "sendMsg"){
+        sendMsg(request.payload);
+      }
   }
 );
+
