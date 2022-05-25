@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Popup from './Popup.jsx';
-import Chatwindow from './Chatwindow.jsx';
+import Chatroom from './Chatroom.jsx';
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ class App extends Component {
           !this.state.test && <Popup onClick={() => onClick()} />
         }
         {
-          this.state.test && <Chatwindow state={this.state.test}/>
+          this.state.test && <Chatroom state={this.state.test}/>
         }
       </div>
     );
