@@ -18,8 +18,6 @@ export default function Chatwindow(){
   }
 
   chrome.runtime.onMessage.addListener((message) => {
-    console.log("Here comes message");
-    console.log(message.msg);
     setMessages([...messages, message.msg])
     return true;
   });
@@ -60,21 +58,6 @@ export default function Chatwindow(){
           </Button>
       </Paper>
 
-          {/* <TextField
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
-            sx={{
-              backgroundColor: "white",
-              width: "inherit",
-              border: "unset"
-            }}/>
-          <Button 
-            onClick={() => sendMsg()} 
-            style={{
-              color: "grey"
-              }}>
-            Send
-          </Button> */}
         </div>
       </Card>
   );
