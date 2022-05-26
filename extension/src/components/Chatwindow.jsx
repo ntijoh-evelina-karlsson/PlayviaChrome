@@ -1,6 +1,6 @@
-
 import React from 'react';
-import Typography from '@mui/material/Typography';
+import Chatmessage from './Chatmessage.jsx';
+import { List } from '@mui/material';
 
 export default function Chatwindow(){
 
@@ -12,8 +12,12 @@ export default function Chatwindow(){
   });
 
   return (
-        
-    messages.length != 0 && messages.map(message => (<Typography>{message}</Typography>))
-        
+  <List style={{backgroundColor: "inherit"}}>
+    {
+      messages.map((message) => (
+        <Chatmessage message={message}/>
+      ))
+    }
+  </List>        
   );
 }
